@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     const mongoUri = process.env.MONGO_URI;
+    const isProduction = process.env.NODE_ENV === 'production';
 
     if (mongoUri && mongoUri.trim() !== '') {
       try {
@@ -13,13 +14,19 @@ const connectDB = async () => {
         return conn;
       } catch (externalErr) {
         console.warn(`[MongoDB] Could not connect to configured MONGO_URI (${externalErr.message}).`);
-        if (process.env.NODE_ENV === 'production') {
+        if (isProduction) {
           throw externalErr;
         }
       }
     }
 
-    // Development Fallback: In-memory MongoDB Server
+    if (isProduction) {
+      throw new Error(
+        'MONGO_URI is required in production. Add your MongoDB Atlas connection string to the backend environment variables.'
+      );
+    }
+
+    // Development fallback only: In-memory MongoDB server
     console.log('[MongoDB] Starting in-memory MongoDB fallback server...');
     const { MongoMemoryServer } = require('mongodb-memory-server');
     const mongod = await MongoMemoryServer.create();
