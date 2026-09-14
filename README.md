@@ -220,7 +220,7 @@ This creates:
 
 | Account | Email | Password | Role |
 |---------|-------|----------|------|
-| 🛡️ Administrator | `admin@lpuhustle.com` | `Admin@123` | admin |
+| 🛡️ Administrator | `siddharthwizard123@gmail.com` | `Sidsez@12` | admin |
 | 👤 Rahul Sharma | `rahul.sharma@lpuhustle.com` | `Student@123` | user |
 | 👤 Priya Patel | `priya.patel@lpuhustle.com` | `Student@123` | user |
 | 👤 Aman Verma | `aman.verma@lpuhustle.com` | `Student@123` | user |

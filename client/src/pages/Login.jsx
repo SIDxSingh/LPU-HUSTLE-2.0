@@ -82,7 +82,7 @@ export const Login = () => {
             <button
               type="button"
               id="demo-admin-fill-btn"
-              onClick={() => handleQuickDemoLogin('admin@lpuhustle.com', 'Admin@123')}
+              onClick={() => handleQuickDemoLogin('siddharthwizard123@gmail.com', 'Sidsez@12')}
               className="px-2.5 py-1.5 rounded-lg bg-white border border-amber-200 hover:border-amber-400 font-semibold text-amber-700 text-left transition shadow-2xs"
             >
               <div className="text-[10px] text-slate-400 uppercase font-bold">Admin</div>
