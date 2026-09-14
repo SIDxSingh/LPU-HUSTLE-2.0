@@ -1,7 +1,19 @@
 import axios from 'axios';
 
+const getApiBaseUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+
+  if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+    return '/api';
+  }
+
+  return 'https://lpu-hustle-2-0.onrender.com/api';
+};
+
 const api = axios.create({
-  baseURL: 'https://lpu-hustle-2-0.onrender.com/api',
+  baseURL: getApiBaseUrl(),
   headers: {
     'Content-Type': 'application/json',
   },

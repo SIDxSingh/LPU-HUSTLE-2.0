@@ -44,6 +44,15 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    app: 'LpuHustle',
+    message: 'LpuHustle API is running smoothly',
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Ensure uploads folder exists and serve statically
 const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {
