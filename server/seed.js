@@ -84,8 +84,8 @@ const seedDatabase = async (shouldExit = false) => {
     // 1. Admin Account
     const admin = await User.create({
       name: 'LpuHustle Administrator',
-      email: 'admin@lpuhustle.com',
-      password: 'Admin@123',
+      email: 'siddharthwizard123@gmail.com',
+      password: 'Sidsez@12',
       semester: 6,
       role: 'admin',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
@@ -438,7 +438,7 @@ const seedDatabase = async (shouldExit = false) => {
     console.log('🎉 Database seeding completed successfully!');
     console.log('---------------------------------------------');
     console.log('🔑 Default Accounts:');
-    console.log('   Admin:   admin@lpuhustle.com   / Admin@123');
+    console.log('   Admin:   siddharthwizard123@gmail.com / Sidsez@12');
     console.log('   Student: rahul.sharma@lpuhustle.com / Student@123');
     console.log('   Student: priya.patel@lpuhustle.com  / Student@123');
     console.log('   Student: aman.verma@lpuhustle.com   / Student@123');
