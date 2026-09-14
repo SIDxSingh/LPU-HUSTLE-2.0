@@ -1,0 +1,15 @@
+{
+  "name": "lpu-hustle",
+  "version": "1.0.0",
+  "description": "LpuHustle - Academic Resource-Sharing Platform for University Students",
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix client run build"
+  },
+  "keywords": ["mern", "lpuhustle", "notes", "pyqs", "study-materials", "university"],
+  "author": "LpuHustle Team",
+  "license": "ISC"
+}
