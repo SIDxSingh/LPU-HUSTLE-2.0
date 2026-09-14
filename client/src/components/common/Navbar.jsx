@@ -20,6 +20,8 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
+  const showContributeLink = !isAdmin;
+
   const handleLogout = () => {
     logout();
     setUserDropdownOpen(false);
@@ -67,20 +69,22 @@ export const Navbar = () => {
             <NavLink to="/semesters" id="nav-link-semesters" className={navLinkClass}>
               Semesters
             </NavLink>
-            <NavLink
-              to="/upload"
-              id="nav-link-contribute"
-              className={({ isActive }) =>
-                `text-sm font-medium transition-all duration-200 py-1.5 px-3.5 rounded-lg flex items-center gap-1.5 ${
-                  isActive
-                    ? 'bg-brand-600 text-white shadow-sm'
-                    : 'text-brand-600 bg-brand-50 hover:bg-brand-100 font-semibold'
-                }`
-              }
-            >
-              <UploadCloud className="w-4 h-4" />
-              Contribute
-            </NavLink>
+            {showContributeLink && (
+              <NavLink
+                to="/upload"
+                id="nav-link-contribute"
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-all duration-200 py-1.5 px-3.5 rounded-lg flex items-center gap-1.5 ${
+                    isActive
+                      ? 'bg-brand-600 text-white shadow-sm'
+                      : 'text-brand-600 bg-brand-50 hover:bg-brand-100 font-semibold'
+                  }`
+                }
+              >
+                <UploadCloud className="w-4 h-4" />
+                Contribute
+              </NavLink>
+            )}
           </nav>
 
           {/* Auth & Action Section */}
@@ -223,14 +227,16 @@ export const Navbar = () => {
             >
               Browse Semesters
             </Link>
-            <Link
-              to="/upload"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium text-brand-600 bg-brand-50"
-            >
-              <UploadCloud className="w-5 h-5" />
-              Upload & Contribute
-            </Link>
+            {!isAdmin && (
+              <Link
+                to="/upload"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium text-brand-600 bg-brand-50"
+              >
+                <UploadCloud className="w-5 h-5" />
+                Upload & Contribute
+              </Link>
+            )}
           </div>
 
           {isAuthenticated ? (
